@@ -17,8 +17,8 @@
 
 <title>Gestione Pagine S.R.L. — Sito in evoluzione</title>
 
-<!-- Favicon (versione blu) -->
-<link rel="icon" type="image/png" href="./Icon_Gestione_Pagine_BLU.png">
+<!-- Favicon SVG inline (no PNG dependency) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='44' fill='none' stroke='%231E3A5F' stroke-width='5'/%3E%3Ctext x='50' y='66' text-anchor='middle' font-family='Georgia,serif' font-size='44' font-weight='500' font-style='italic' fill='%231E3A5F'%3EGP%3C/text%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="./Icon_Gestione_Pagine_BLU.png">
 
 <!-- Fonts -->
@@ -94,9 +94,19 @@
     align-items: center;
     gap: 24px;
   }
-  .topbar-logo img {
-    height: 32px;
+  .topbar-logo {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary);
+    transition: color .2s ease;
+  }
+  .topbar-logo:hover {
+    color: var(--ocra);
+  }
+  .topbar-logo .logo-mark {
+    height: 36px;
     width: auto;
+    display: block;
   }
   .topbar-meta {
     font-family: var(--font-mono);
@@ -553,7 +563,17 @@
 <header class="topbar">
   <div class="topbar-inner">
     <a href="/" class="topbar-logo" aria-label="Gestione Pagine S.R.L.">
-      <img src="./Logo_Gestione_Pagine_BLU.png" alt="Gestione Pagine S.R.L." width="220">
+      <svg class="logo-mark" viewBox="0 0 280 44" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="logoTitle">
+        <title id="logoTitle">Gestione Pagine</title>
+        <!-- Monogramma GP -->
+        <g>
+          <circle cx="22" cy="22" r="20" fill="none" stroke="currentColor" stroke-width="2"/>
+          <text x="22" y="29" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="20" font-weight="500" fill="currentColor" font-style="italic">GP</text>
+        </g>
+        <!-- Wordmark -->
+        <text x="56" y="22" font-family="Fraunces, Georgia, serif" font-size="20" font-weight="500" fill="currentColor" letter-spacing="-0.3">Gestionepagine</text>
+        <text x="56" y="36" font-family="JetBrains Mono, monospace" font-size="8" font-weight="500" fill="currentColor" opacity="0.65" letter-spacing="1.5">DIGITAL FACTORY · S.R.L.</text>
+      </svg>
     </a>
     <div class="topbar-meta">
       <span class="dot" aria-hidden="true"></span>
