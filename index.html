@@ -1016,18 +1016,21 @@
     font-family: var(--font-mono);
     font-size: 11px;
     letter-spacing: 0.1em;
-    color: var(--ocra);
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--primary);
+    background: var(--ocra);
     text-decoration: none;
-    border-bottom: 1px solid var(--ocra);
-    padding-bottom: 3px;
+    padding: 12px 22px;
+    border-radius: 4px;
     transition: all .2s ease;
     position: relative;
     z-index: 1;
     align-self: flex-start;
   }
   .case-link-cta:hover {
-    color: #fff;
-    border-bottom-color: #fff;
+    background: #d4ad29;
+    transform: translateY(-1px);
   }
 
   /* === SEZIONE ABOUT === */
@@ -1450,10 +1453,13 @@
       <div class="eyebrow">Perché 30 giorni</div>
       <h2 class="promise-title">L'AI ci fa risparmiare tempo. <em>Lo sconto va a te.</em></h2>
       <p class="promise-text">
-        Le agenzie tradizionali ti chiedono €3.000–€8.000 per un sito e ti fanno aspettare 3–6 mesi. Noi usiamo strumenti di intelligenza artificiale per accelerare il lavoro tecnico — copy, design, codice, configurazioni — senza tagliare la qualità. Il risparmio di tempo e personale lo giriamo a te. Non in tasca nostra.
+        Le agenzie tradizionali ti chiedono €3.000–€8.000 per un sito e ti fanno aspettare 3–6 mesi. Le agenzie nuove usano l'AI come noi, ma tengono i prezzi vecchi e si mettono il margine in tasca. Noi facciamo il contrario: usiamo strumenti di intelligenza artificiale per accelerare il lavoro tecnico — copy, design, codice, configurazioni — e il risparmio di tempo e di forza lavoro lo giriamo a te.
       </p>
       <p class="promise-text">
-        Tu ricevi un ecosistema digitale completo, costruito bene, pronto in <strong>30 giorni dalla firma</strong>. Trasparenza totale: ti diciamo cosa fa l'AI e cosa fa la persona, e cosa pagheresti altrove.
+        Non è uno sconto economico. È un patto di onestà: ti diciamo cosa fa l'AI, cosa fa la persona, e cosa pagheresti altrove per lo stesso lavoro. Tu ricevi un ecosistema digitale completo, costruito bene, pronto in <strong>30 giorni dalla firma</strong>. Senza sorprese, senza preventivi nascosti, senza l'illusione che dietro ci siano sempre dieci persone a lavorare a mano.
+      </p>
+      <p class="promise-text">
+        E quando serve, andiamo oltre il sito: <strong>strategia digitale</strong> per chi cresce, <strong>accesso a bandi e fondi pubblici</strong> per la digitalizzazione delle PMI, <strong>consulenza operativa</strong> per chi vuole capire dove investire prima di investire. Trasparenza, non solo nel listino.
       </p>
     </div>
   </section>
@@ -1587,7 +1593,7 @@
           <div class="tier-c-eyebrow">Pacchetto C · Su selezione</div>
           <h3>AI Infrastructure per aziende <em>strutturate.</em></h3>
           <p>Per aziende con fatturato dai 500K/anno in su che vogliono integrare l'AI dentro i processi che generano cassa: lead generation qualificata, agenti che pre-filtrano i contatti, cross-selling automatizzato, analisi predittiva su retention e churn.</p>
-          <p>Non automazioni a pacchetto. Infrastruttura costruita dentro la tua azienda, in produzione, collegata al CRM e al business reale. Seguito personalmente da Daniele Testa, Amministratore Unico.</p>
+          <p>Non automazioni a pacchetto. Infrastruttura costruita dentro la tua azienda, in produzione, collegata al CRM e al business reale. Seguito personalmente da <strong>Daniele Testa, Founder di Gestione Pagine</strong>.</p>
         </div>
         <div>
           <div class="tier-c-meta">
@@ -1621,7 +1627,7 @@
       <div class="process-step">
         <div class="process-num">Settimana 1</div>
         <h3>Onboarding e audit</h3>
-        <p>Compili un questionario di 25 domande (15 minuti). Ti chiamiamo per capire obiettivi, brand voice, calendari eventi. Ti consegniamo il piano operativo.</p>
+        <p>Compili un questionario di 25 domande (15 minuti). Ci confrontiamo per definire obiettivi, brand voice, calendari eventi. Ti consegniamo il piano operativo.</p>
       </div>
       <div class="process-step">
         <div class="process-num">Settimane 2–3</div>
@@ -1659,8 +1665,8 @@
 
       <article class="case-item">
         <div class="case-meta">Outdoor · Editoriale</div>
-        <h3>MountAking</h3>
-        <p>Magazine digitale dedicato alla cultura della montagna. Progetto editoriale lanciato di recente.</p>
+        <h3>MountaKing</h3>
+        <p>Magazine digitale dedicato alla cultura della montagna. "Re della montagna": progetto editoriale lanciato di recente.</p>
         <a href="https://mountaking.com" target="_blank" rel="noopener" class="case-link">mountaking.com ↗</a>
       </article>
 
@@ -1722,7 +1728,7 @@
       <div class="eyebrow">Chi siamo</div>
       <h2>Una digital factory italiana. <em>Operativa da dieci anni.</em></h2>
       <p class="about-text">
-        Gestione Pagine S.R.L. è una società di servizi digitali con sede a Roma, uffici a Bergamo e operations a Formia. Costruiamo siti, ecosistemi, network di properties dal 2016. Abbiamo iniziato gestendo il digitale per il borgo di Castelluccio di Norcia dopo il sisma del 2016, e da lì abbiamo costruito tutto il resto.
+        Gestione Pagine S.R.L. è una società di servizi digitali con sede a Roma, uffici a Milano e Bergamo, operations a Norcia e Formia. Costruiamo siti, ecosistemi, network di properties dal 2016. Abbiamo iniziato gestendo il digitale per il borgo di Castelluccio di Norcia dopo il sisma del 2016, e da lì abbiamo costruito tutto il resto.
       </p>
       <p class="about-text">
         Oggi serviamo piccole imprese, professionisti e attività locali che vogliono presenziare online seriamente, con un partner stabile e una visione di lungo periodo.
@@ -1766,50 +1772,62 @@
 <!-- FOOTER -->
 <footer>
 
-  <!-- Sedi e uffici -->
+  <!-- Sedi e uffici (prima linea: HQ + branches) -->
   <div class="footer-locations">
 
     <div class="footer-loc">
       <h4>Sede Legale</h4>
       <div class="footer-loc-name">Roma</div>
       <div class="footer-loc-addr">
+        Via della Cellulosa<br>
         Roma (RM)
       </div>
       <div class="footer-loc-rea">REA RM-1517243</div>
     </div>
 
     <div class="footer-loc">
-      <h4>Warehouse</h4>
-      <div class="footer-loc-name">Norcia</div>
+      <h4>Ufficio</h4>
+      <div class="footer-loc-name">Milano</div>
       <div class="footer-loc-addr">
-        Norcia (PG)
+        Milano (MI)
       </div>
-      <div class="footer-loc-rea">REA PG-299718</div>
+      <div class="footer-loc-rea">&nbsp;</div>
     </div>
 
     <div class="footer-loc">
       <h4>Ufficio</h4>
       <div class="footer-loc-name">Bergamo</div>
       <div class="footer-loc-addr">
+        Palazzo Stampa<br>
         Bergamo (BG)
       </div>
       <div class="footer-loc-rea">REA BG-470039</div>
     </div>
 
     <div class="footer-loc">
-      <h4>Operations</h4>
-      <div class="footer-loc-name">Formia</div>
+      <h4>Hub Logistic</h4>
+      <div class="footer-loc-name">Norcia</div>
       <div class="footer-loc-addr">
-        Formia (LT)<br>
-        <span style="font-family: var(--font-mono); font-size: 10px; color: var(--ocra);">in sviluppo</span>
+        Zona Industriale<br>
+        Norcia (PG)<br>
+        <span style="font-family: var(--font-mono); font-size: 10px; color: var(--ocra);">in sviluppo · Invitalia</span>
       </div>
-      <div class="footer-loc-rea">&nbsp;</div>
+      <div class="footer-loc-rea">REA PG-299718</div>
     </div>
 
   </div>
 
-  <!-- Logistica & Produzione -->
+  <!-- Operations & Logistica (seconda linea) -->
   <div class="footer-locations">
+
+    <div class="footer-loc">
+      <h4>Operations</h4>
+      <div class="footer-loc-name">Formia &amp; Gaeta</div>
+      <div class="footer-loc-addr">
+        Formia (LT) · Gaeta (LT)
+      </div>
+      <div class="footer-loc-rea">&nbsp;</div>
+    </div>
 
     <div class="footer-loc">
       <h4>Logistica Nord Italia</h4>
@@ -1817,31 +1835,23 @@
       <div class="footer-loc-addr">
         Gianico, Brescia (BS)
       </div>
+      <div class="footer-loc-rea">&nbsp;</div>
     </div>
 
     <div class="footer-loc">
       <h4>Logistica Centro Italia</h4>
-      <div class="footer-loc-name">Capena</div>
+      <div class="footer-loc-name">Roma</div>
       <div class="footer-loc-addr">
         Capena, Roma (RM)
       </div>
+      <div class="footer-loc-rea">&nbsp;</div>
     </div>
 
     <div class="footer-loc">
-      <h4>Produzione</h4>
-      <div class="footer-loc-name">Milano</div>
-      <div class="footer-loc-addr">
-        Milano (MI)
-      </div>
-    </div>
-
-    <div class="footer-loc">
-      <h4>Hub Warehouse</h4>
-      <div class="footer-loc-name">Norcia</div>
-      <div class="footer-loc-addr">
-        Norcia (PG)<br>
-        <span style="font-family: var(--font-mono); font-size: 10px; color: var(--ocra);">in sviluppo · Invitalia</span>
-      </div>
+      <h4>&nbsp;</h4>
+      <div class="footer-loc-name">&nbsp;</div>
+      <div class="footer-loc-addr">&nbsp;</div>
+      <div class="footer-loc-rea">&nbsp;</div>
     </div>
 
   </div>
