@@ -742,6 +742,107 @@
     line-height: 1.6;
   }
 
+  /* === PACCHETTO C — TIER ENTERPRISE === */
+  .tier-c {
+    margin-top: 60px;
+    background: var(--primary);
+    color: #fff;
+    border-radius: 6px;
+    padding: 48px clamp(28px, 5vw, 56px);
+    position: relative;
+    overflow: hidden;
+  }
+  .tier-c::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--ocra);
+  }
+  .tier-c-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .tier-c-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--ocra);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .tier-c h3 {
+    font-family: var(--font-display);
+    font-size: clamp(26px, 3.4vw, 34px);
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+  .tier-c h3 em {
+    font-style: italic;
+    color: var(--ocra);
+  }
+  .tier-c p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 20px;
+  }
+  .tier-c-meta {
+    display: flex;
+    gap: 32px;
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.18);
+  }
+  .tier-c-meta-item {
+    flex: 1;
+  }
+  .tier-c-meta-num {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--ocra);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .tier-c-meta-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.7);
+    text-transform: uppercase;
+  }
+  .tier-c-cta {
+    display: inline-block;
+    padding: 14px 28px;
+    background: var(--ocra);
+    color: var(--primary);
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 16px;
+    transition: background 0.2s;
+  }
+  .tier-c-cta:hover {
+    background: #d4ad29;
+  }
+  @media (max-width: 760px) {
+    .tier-c { padding: 36px 24px; }
+    .tier-c-grid { grid-template-columns: 1fr; gap: 24px; }
+    .tier-c-meta { flex-direction: column; gap: 16px; }
+  }
+
   /* === SEZIONE PROCESS === */
   .process {
     max-width: var(--maxw);
@@ -1412,7 +1513,7 @@
   <section class="pricing" id="pacchetti">
     <div class="section-head">
       <div class="eyebrow">Pacchetti</div>
-      <h2>Due piani. Prezzi chiari. <em>Nessun preventivo nascosto.</em></h2>
+      <h2>Tre livelli. Prezzi chiari. <em>Nessun preventivo nascosto.</em></h2>
     </div>
 
     <div class="pricing-grid">
@@ -1478,6 +1579,35 @@
     <p class="pricing-note">
       Tutti i prezzi sono <strong>IVA esclusa</strong>. Pagamento setup all'avvio, ricorrente con addebito mensile. Disdetta libera dopo i 6 mesi minimi di abbonamento.
     </p>
+
+    <!-- Pacchetto C: AI Infrastructure -->
+    <div class="tier-c">
+      <div class="tier-c-grid">
+        <div>
+          <div class="tier-c-eyebrow">Pacchetto C · Su selezione</div>
+          <h3>AI Infrastructure per aziende <em>strutturate.</em></h3>
+          <p>Per aziende con fatturato dai 500K/anno in su che vogliono integrare l'AI dentro i processi che generano cassa: lead generation qualificata, agenti che pre-filtrano i contatti, cross-selling automatizzato, analisi predittiva su retention e churn.</p>
+          <p>Non automazioni a pacchetto. Infrastruttura costruita dentro la tua azienda, in produzione, collegata al CRM e al business reale. Seguito personalmente da Daniele Testa, Amministratore Unico.</p>
+        </div>
+        <div>
+          <div class="tier-c-meta">
+            <div class="tier-c-meta-item">
+              <div class="tier-c-meta-num">Fisso + %</div>
+              <div class="tier-c-meta-label">Skin in the game</div>
+            </div>
+            <div class="tier-c-meta-item">
+              <div class="tier-c-meta-num">2 / anno</div>
+              <div class="tier-c-meta-label">Posti disponibili</div>
+            </div>
+            <div class="tier-c-meta-item">
+              <div class="tier-c-meta-num">12 mesi</div>
+              <div class="tier-c-meta-label">Partnership minima</div>
+            </div>
+          </div>
+          <a href="mailto:daniele@gestionepagine.com?subject=Pacchetto%20C%20-%20AI%20Infrastructure" class="tier-c-cta">Scrivi a Daniele →</a>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- SEZIONE: Come lavoriamo -->
