@@ -591,8 +591,8 @@
   }
   .deliv-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
   }
   .deliv-item {
     padding: 28px 24px;
@@ -849,6 +849,86 @@
     cursor: default;
   }
 
+  /* Card CTA "Marketing di quartiere" — chiusura griglia casi studio */
+  .case-item-cta {
+    background: var(--primary);
+    border-color: var(--primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .case-item-cta:hover {
+    background: var(--primary-hover);
+    border-color: var(--primary-hover);
+    transform: translateY(-2px);
+    transition: all .25s ease;
+  }
+  .case-item-cta::after {
+    content: "";
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 140px;
+    height: 140px;
+    background: radial-gradient(circle, rgba(201,162,39,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .case-meta-cta {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--ocra);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .case-title-cta {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 500;
+    color: #fff;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .case-title-cta em {
+    font-style: italic;
+    color: var(--ocra);
+    font-weight: 400;
+  }
+  .case-text-cta {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.82);
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+  }
+  .case-link-cta {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--ocra);
+    text-decoration: none;
+    border-bottom: 1px solid var(--ocra);
+    padding-bottom: 3px;
+    transition: all .2s ease;
+    position: relative;
+    z-index: 1;
+    align-self: flex-start;
+  }
+  .case-link-cta:hover {
+    color: #fff;
+    border-bottom-color: #fff;
+  }
+
   /* === SEZIONE ABOUT === */
   .about {
     max-width: var(--maxw);
@@ -948,6 +1028,9 @@
   }
 
   /* === RESPONSIVE === */
+  @media (max-width: 1100px) {
+    .deliv-grid { grid-template-columns: repeat(3, 1fr); }
+  }
   @media (max-width: 980px) {
     .deliv-grid { grid-template-columns: repeat(2, 1fr); }
     .process-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1312,6 +1395,16 @@
         <h3>Reportistica e supporto</h3>
         <p>Report mensile su traffico, contatti, andamento. Email/WhatsApp per il supporto, risposta in 24h lavorative.</p>
       </div>
+      <div class="deliv-item">
+        <div class="deliv-num">07</div>
+        <h3>Branding essenziale</h3>
+        <p>Accenni di branding: palette colore coerente, font, tono di voce e linee guida visive di base. Il tuo brand parla con una voce sola, ovunque.</p>
+      </div>
+      <div class="deliv-item">
+        <div class="deliv-num">08</div>
+        <h3>Reputazione digitale</h3>
+        <p>Sistemazione a regola d'arte della reputazione online: pulizia profili, gestione recensioni, presidio dei risultati Google sul nome dell'attività.</p>
+      </div>
     </div>
   </section>
 
@@ -1430,57 +1523,64 @@
       <article class="case-item">
         <div class="case-meta">Personal Brand · Founder</div>
         <h3>Daniele Testa</h3>
-        <p>Sito personale del founder. Hub di riferimento per i progetti diretti, blog, presenza professionale. Strutturato per credibilità tecnica e SEO sul nome.</p>
+        <p>Sito personale del founder. Hub di riferimento per i progetti diretti, blog, presenza professionale online.</p>
         <a href="https://testadaniele.it" target="_blank" rel="noopener" class="case-link">testadaniele.it ↗</a>
       </article>
 
       <article class="case-item">
         <div class="case-meta">Outdoor · Editoriale</div>
         <h3>MountAking</h3>
-        <p>Magazine digitale dedicato alla cultura della montagna. Lanciato nelle ultime settimane: architettura editoriale modulare, SEO long-tail, infrastruttura scalabile per crescere insieme alla redazione.</p>
+        <p>Magazine digitale dedicato alla cultura della montagna. Progetto editoriale lanciato di recente.</p>
         <a href="https://mountaking.com" target="_blank" rel="noopener" class="case-link">mountaking.com ↗</a>
       </article>
 
       <article class="case-item">
-        <div class="case-meta">Personal Brand · Beauty</div>
+        <div class="case-meta">Personal Brand</div>
         <h3>Iaia De Rose</h3>
-        <p>Sito personale e professional brand per Iaia De Rose. Migrazione completa dal vecchio dominio glowupyourself, ristrutturazione SEO, pulizia tecnica. Posizionamento organico su keyword del personal branding beauty.</p>
+        <p>Sito personale e professional brand di Iaia De Rose.</p>
         <a href="https://iaiaderose.com" target="_blank" rel="noopener" class="case-link">iaiaderose.com ↗</a>
       </article>
 
       <article class="case-item">
-        <div class="case-meta">Brand · Milano</div>
+        <div class="case-meta">Fashion · Lusso</div>
         <h3>Iaia Milano</h3>
-        <p>Brand verticale milanese: sito vetrina, ecosistema social coordinato, content strategy. Identità visiva pulita, performance mobile, strutturato per scalare verso e-commerce nei prossimi mesi.</p>
+        <p>Brand di borse di lusso. Identità visiva, e-commerce e ecosistema digitale dedicato.</p>
         <a href="https://iaiamilano.com" target="_blank" rel="noopener" class="case-link">iaiamilano.com ↗</a>
       </article>
 
       <article class="case-item">
         <div class="case-meta">Strategia · Sostenibilità</div>
         <h3>Strategic Foresight</h3>
-        <p>Piattaforma di consulenza strategica e foresight orientata alla sostenibilità. Partner di GP SRL per i progetti che richiedono visione di lungo periodo e analisi di scenario.</p>
+        <p>Piattaforma di consulenza strategica e foresight orientata alla sostenibilità.</p>
         <a href="https://strategicforesight.eu" target="_blank" rel="noopener" class="case-link">strategicforesight.eu ↗</a>
       </article>
 
       <article class="case-item">
         <div class="case-meta">Turismo · Territorio</div>
         <h3>Castelluccio di Norcia</h3>
-        <p>Ecosistema turistico-territoriale: sito di riferimento, network social cumulato sei cifre, posizionamento SEO leader sulle keyword turistiche dell'Appennino centrale. Gestito dal 2016, post-sisma.</p>
+        <p>Ecosistema turistico-territoriale: sito di riferimento e network social verticale dedicato al borgo. Gestito dal 2016, post-sisma.</p>
         <a href="https://castelluccio.org" target="_blank" rel="noopener" class="case-link">castelluccio.org ↗</a>
       </article>
 
       <article class="case-item">
         <div class="case-meta">Network · Outdoor</div>
         <h3>Sibillini · Appennini · Rifugi</h3>
-        <p>Network di 4 properties verticali su outdoor e turismo lento. Standard tecnico v1.5 condiviso, deploy automatico, infrastruttura Cloudflare. Audience cumulata fidelizzata in nicchia ad alto valore.</p>
+        <p>Network di properties verticali su outdoor e turismo lento. Audience cumulata fidelizzata in nicchie ad alto valore.</p>
         <a href="https://rifugi.org" target="_blank" rel="noopener" class="case-link">rifugi.org ↗</a>
       </article>
 
       <article class="case-item">
         <div class="case-meta">Sociale · ODV</div>
         <h3>La Casa Sull'Albero</h3>
-        <p>Supporto digitale a una ODV partner: campagna Google AdGrant approvata e in sviluppo, sito istituzionale, integrazione donazioni. Il digitale al servizio di chi fa cose buone.</p>
+        <p>ODV partner. Campagna Google AdGrant approvata, sito istituzionale.</p>
         <a href="https://casasullalbero.org" target="_blank" rel="noopener" class="case-link">casasullalbero.org ↗</a>
+      </article>
+
+      <article class="case-item case-item-cta">
+        <div class="case-meta-cta">E per tante altre attività</div>
+        <h3 class="case-title-cta">Marketing di quartiere<br><em>da local a global.</em></h3>
+        <p class="case-text-cta">Ogni progetto è un ecosistema. Costruiamo presenza digitale per chi vuole farsi trovare, dal negozio di paese al brand internazionale.</p>
+        <a href="#audit" class="case-link-cta">Inizia con un audit gratuito ↗</a>
       </article>
 
     </div>
@@ -1495,7 +1595,7 @@
         Gestione Pagine S.R.L. è una società di servizi digitali con sede a Roma, uffici a Bergamo e operations a Formia. Costruiamo siti, ecosistemi, network di properties dal 2016. Abbiamo iniziato gestendo il digitale per il borgo di Castelluccio di Norcia dopo il sisma del 2016, e da lì abbiamo costruito tutto il resto.
       </p>
       <p class="about-text">
-        Oggi serviamo piccole imprese, professionisti, attività locali che vogliono presenziare online seriamente — senza spendere quanto un'agenzia di Milano e senza l'incertezza dei freelance.
+        Oggi serviamo piccole imprese, professionisti e attività locali che vogliono presenziare online seriamente, con un partner stabile e una visione di lungo periodo.
       </p>
 
       <div class="about-numbers">
