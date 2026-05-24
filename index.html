@@ -93,40 +93,30 @@
     max-width: var(--maxw);
     margin: 0 auto;
     padding: 18px var(--pad);
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
     gap: 24px;
   }
-  .topbar-logo {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    color: var(--primary);
-    transition: opacity .2s ease;
-  }
-  .topbar-logo:hover {
-    opacity: 0.78;
-  }
-  .topbar-logo .logo-icon {
-    height: 38px;
-    width: auto;
-    display: block;
-  }
-  .topbar-logo .logo-text {
+  /* Colonna 1 — testo + badge, allineati a sinistra */
+  .topbar-brand {
+    grid-column: 1;
+    justify-self: start;
     display: flex;
     flex-direction: column;
     line-height: 1;
     gap: 3px;
   }
-  .topbar-logo .logo-name {
+  .topbar-brand .logo-name {
     font-family: var(--font-display);
     font-size: 19px;
     font-weight: 500;
     letter-spacing: -0.015em;
     color: var(--primary);
+    display: inline-flex;
+    align-items: center;
   }
-  .topbar-logo .logo-tag {
+  .topbar-brand .logo-tag {
     font-family: var(--font-mono);
     font-size: 8.5px;
     font-weight: 500;
@@ -134,8 +124,28 @@
     color: var(--ink-soft);
     text-transform: uppercase;
   }
+  /* Colonna 2 — solo icona logotipo, centrata */
+  .topbar-logo {
+    grid-column: 2;
+    justify-self: center;
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary);
+    transition: opacity .2s ease;
+  }
+  .topbar-logo:hover { opacity: 0.78; }
+  .topbar-logo .logo-icon {
+    height: 38px;
+    width: auto;
+    display: block;
+  }
+  /* Colonna 3 — meta dot, allineato a destra */
+  .topbar-meta {
+    grid-column: 3;
+    justify-self: end;
+  }
   @media (max-width: 480px) {
-    .topbar-logo .logo-text { display: none; }
+    .topbar-brand { display: none; }
     .topbar-logo .logo-icon { height: 32px; }
   }
   .topbar-meta {
@@ -1359,18 +1369,24 @@
 <!-- TOP BAR -->
 <header class="topbar">
   <div class="topbar-inner">
+
+    <!-- Colonna 1: testo + badge verificato -->
+    <div class="topbar-brand">
+      <span class="logo-name">Gestionepagine<span class="verified-badge" aria-label="Profilo verificato" title="Gestione Pagine S.R.L. — Profilo verificato">
+          <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="10" cy="10" r="10" fill="#0066CC"/>
+            <path d="M6 10.5l2.8 2.8 5.2-5.6" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </span></span>
+      <span class="logo-tag">DIGITAL FACTORY · S.R.L.</span>
+    </div>
+
+    <!-- Colonna 2: solo logotipo icona, centrato -->
     <a href="/" class="topbar-logo" aria-label="Gestione Pagine S.R.L.">
       <img src="./Icon_Gestione_Pagine_BLU_192.png" alt="" class="logo-icon" width="40" height="40">
-      <span class="logo-text">
-        <span class="logo-name">Gestionepagine<span class="verified-badge" aria-label="Profilo verificato" title="Gestione Pagine S.R.L. — Profilo verificato">
-            <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <circle cx="10" cy="10" r="10" fill="#0066CC"/>
-              <path d="M6 10.5l2.8 2.8 5.2-5.6" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            </svg>
-          </span></span>
-        <span class="logo-tag">DIGITAL FACTORY · S.R.L.</span>
-      </span>
     </a>
+
+    <!-- Colonna 3: meta dot -->
     <div class="topbar-meta">
       <span class="dot" aria-hidden="true"></span>
       <span>Sito in evoluzione</span>
@@ -1391,7 +1407,7 @@
       </p>
 
       <div class="cta-row">
-        <a href="#audit" class="btn-primary">Audit gratuito 15 min →</a>
+        <a href="#audit" class="btn-primary">Analisi gratuita 15 min →</a>
         <a href="#pacchetti" class="btn-secondary">Vedi i pacchetti</a>
       </div>
 
@@ -1416,9 +1432,9 @@
     </div>
 
     <aside class="form-card" id="audit">
-      <div class="form-eyebrow">Audit Digitale Gratuito</div>
-      <h2>15 minuti per capire dove ti perdi clienti online.</h2>
-      <p>Lascia la tua email. Analizziamo la tua presenza digitale (sito, Google, social) e ti mandiamo un audit personalizzato con 3 cose concrete da sistemare. Senza impegno.</p>
+      <div class="form-eyebrow">Analisi Presenza Digitale — AI Powered</div>
+      <h2>Analizziamo la tua presenza online.<br>In 15 minuti, gratuitamente.</h2>
+      <p>Lascia la tua email. L'analisi è condotta tramite <strong>Claude Cowork</strong> e i sistemi agentici di <strong>Agentic AI Agency</strong>: scansione automatica di sito, profili social, Google Business, menzioni web e reputazione online. Ricevi un report concreto con le priorità d'intervento. Senza impegno.</p>
 
       <form
         action="https://com.us5.list-manage.com/subscribe/post?u=71a4c4f78fdfdad8954e81d00&amp;id=0f70f27559&amp;v_id=3532&amp;f_id=005ebbedf0"
@@ -1443,7 +1459,7 @@
         <div class="mc-consent">
           <input type="checkbox" id="gdpr_371650" name="gdpr[371650]" value="Y">
           <label for="gdpr_371650">
-            <strong>Acconsento</strong> al trattamento dei miei dati per ricevere l'audit gratuito e comunicazioni da Gestione Pagine S.R.L. Posso disiscrivermi in ogni momento.
+            <strong>Acconsento</strong> al trattamento dei miei dati per ricevere l'analisi gratuita e comunicazioni da Gestione Pagine S.R.L. Posso disiscrivermi in ogni momento.
           </label>
         </div>
 
@@ -1454,7 +1470,7 @@
         </div>
 
         <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="mc-submit">
-          Richiedi audit gratuito
+          Richiedi analisi gratuita
         </button>
 
         <p class="mc-legal">
@@ -1482,7 +1498,7 @@
   <section class="promise">
     <div class="promise-inner">
       <div class="eyebrow">Perché 30 giorni</div>
-      <h2 class="promise-title">L'AI ci fa risparmiare tempo. <em>Lo sconto va a te.</em></h2>
+      <h2 class="promise-title">L'AI ci fa risparmiare tempo.<br><em>Lo sconto va a te.</em></h2>
       <p class="promise-text">
         Le agenzie tradizionali ti chiedono €3.000–€8.000 per un sito e ti fanno aspettare 3–6 mesi. Le agenzie nuove usano l'AI come noi, ma tengono i prezzi vecchi e si mettono il margine in tasca. Noi facciamo il contrario: usiamo strumenti di intelligenza artificiale per accelerare il lavoro tecnico — copy, design, codice, configurazioni — e il risparmio di tempo e di forza lavoro lo giriamo a te.
       </p>
@@ -1585,7 +1601,7 @@
           <li>Email/WhatsApp support 9–18</li>
           <li>Online in 30 giorni dalla firma</li>
         </ul>
-        <a href="#audit" class="btn-primary btn-block">Richiedi audit gratuito →</a>
+        <a href="#audit" class="btn-primary btn-block">Richiedi analisi gratuita →</a>
       </div>
 
       <!-- Pacchetto 2: Performance -->
@@ -1613,7 +1629,7 @@
           <li>2h consulenza/mese inclusa</li>
           <li>Reportistica mensile dettagliata</li>
         </ul>
-        <a href="#audit" class="btn-secondary btn-block">Richiedi audit gratuito →</a>
+        <a href="#audit" class="btn-secondary btn-block">Richiedi analisi gratuita →</a>
       </div>
 
     </div>
@@ -1627,7 +1643,7 @@
       <div class="tier-c-grid">
         <div>
           <div class="tier-c-eyebrow">Pacchetto C · Su selezione</div>
-          <h3>AI Infrastructure per aziende <em>strutturate.</em></h3>
+          <h3>AI Infrastructure per aziende<br><em>strutturate.</em></h3>
           <p>Per aziende con fatturato dai 500K/anno in su che vogliono integrare l'AI dentro i processi che generano cassa: lead generation qualificata, agenti che pre-filtrano i contatti, cross-selling automatizzato, analisi predittiva su retention e churn.</p>
           <p>Non automazioni a pacchetto. Infrastruttura costruita dentro la tua azienda, in produzione, collegata al CRM e al business reale. Seguito personalmente da <strong>Daniele Testa, Founder di Gestione Pagine</strong>.</p>
         </div>
@@ -1700,9 +1716,9 @@
       </article>
 
       <article class="case-item">
-        <div class="case-meta">Outdoor · Editoriale</div>
-        <h3>MountaKing</h3>
-        <p>Magazine digitale dedicato alla cultura della montagna. "Re della montagna": progetto editoriale lanciato di recente.</p>
+        <div class="case-meta">Outdoor · Editoriale · <span style="color:var(--ocra);">ROC</span></div>
+        <h3>MountaKing<sup>®</sup></h3>
+        <p>Magazine digitale dedicato alla cultura della montagna. Marchio denominativo depositato. Iscrizione ROC come editore.</p>
         <a href="https://mountaking.com" target="_blank" rel="noopener" class="case-link">mountaking.com ↗</a>
       </article>
 
@@ -1722,9 +1738,16 @@
 
       <article class="case-item">
         <div class="case-meta">Sport · Community</div>
-        <h3>Runners Club</h3>
-        <p>Presenza digitale per la community italiana del running. Sito, social e gestione della brand identity del club.</p>
-        <a href="https://runnersclub.it" target="_blank" rel="noopener" class="case-link">runnersclub.it ↗</a>
+        <h3>Runners Club<sup>®</sup></h3>
+        <p>Community italiana del running. Marchio denominativo depositato. Sito e piattaforma digitale in sviluppo.</p>
+        <span class="case-link case-link-disabled">runnersclub.it — in sviluppo</span>
+      </article>
+
+      <article class="case-item">
+        <div class="case-meta">Logistica · SaaS · <span style="color:var(--ocra);">SIAE</span></div>
+        <h3>DeliveryExpress<sup>®</sup></h3>
+        <p>Piattaforma logistica proprietaria. Marchio denominativo in deposito. Software applicativo in deposito SIAE. Operatività in sviluppo.</p>
+        <span class="case-link case-link-disabled">deliveryexpress.it — in sviluppo</span>
       </article>
 
       <article class="case-item">
@@ -1801,7 +1824,7 @@
   <!-- SEZIONE CTA finale -->
   <section class="final-cta">
     <div class="final-cta-inner">
-      <h2>Prenota un audit gratuito di 15 minuti.</h2>
+      <h2>Richiedi l'analisi di presenza digitale gratuita.</h2>
       <p>Niente pitch di vendita. Niente lunghe presentazioni. Ti mostriamo dove perdi clienti online e cosa potresti sistemare. Decidi tu se ha senso continuare.</p>
       <div class="cta-row cta-row-center">
         <a href="#audit" class="btn-primary btn-large">Richiedi audit via email →</a>
@@ -1920,6 +1943,9 @@
       </a>
       <a href="https://www.instagram.com/gestionepagine.srl/" target="_blank" rel="noopener" aria-label="Instagram">
         <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9s.68.82.9 1.38c.16.42.36 1.06.41 2.23.06 1.25.07 1.62.07 4.85s-.01 3.6-.07 4.85c-.05 1.17-.25 1.8-.41 2.23a3.71 3.71 0 0 1-.9 1.38 3.71 3.71 0 0 1-1.38.9c-.42.16-1.06.36-2.23.41-1.25.06-1.62.07-4.85.07s-3.6-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.71 3.71 0 0 1-1.38-.9 3.71 3.71 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.25-.07-1.62-.07-4.85s.01-3.6.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38s.82-.68 1.38-.9c.42-.16 1.06-.36 2.23-.41C8.4 2.21 8.77 2.2 12 2.2zm0 1.62c-3.17 0-3.55.01-4.8.07-1.07.05-1.65.23-2.04.38-.51.2-.88.44-1.26.83-.39.39-.63.75-.83 1.26-.15.4-.33.97-.38 2.04-.06 1.25-.07 1.63-.07 4.8s.01 3.55.07 4.8c.05 1.07.23 1.65.38 2.04.2.51.44.88.83 1.26.39.39.75.63 1.26.83.4.15.97.33 2.04.38 1.25.06 1.63.07 4.8.07s3.55-.01 4.8-.07c1.07-.05 1.65-.23 2.04-.38.51-.2.88-.44 1.26-.83.39-.39.63-.75.83-1.26.15-.4.33-.97.38-2.04.06-1.25.07-1.63.07-4.8s-.01-3.55-.07-4.8c-.05-1.07-.23-1.65-.38-2.04a3.4 3.4 0 0 0-.83-1.26 3.4 3.4 0 0 0-1.26-.83c-.4-.15-.97-.33-2.04-.38-1.25-.06-1.63-.07-4.8-.07zm0 2.76a5.42 5.42 0 1 1 0 10.84 5.42 5.42 0 0 1 0-10.84zm0 8.94a3.52 3.52 0 1 0 0-7.04 3.52 3.52 0 0 0 0 7.04zm6.9-9.16a1.27 1.27 0 1 1-2.54 0 1.27 1.27 0 0 1 2.54 0z"/></svg>
+      </a>
+      <a href="/" aria-label="Gestione Pagine S.R.L." style="border:none; background:transparent; padding:0; width:36px; height:36px; display:inline-flex; align-items:center; justify-content:center;">
+        <img src="./Icon_Gestione_Pagine_BLU_192.png" alt="Gestione Pagine" width="26" height="26" style="opacity:0.55; transition:opacity .2s ease;">
       </a>
     </div>
 
