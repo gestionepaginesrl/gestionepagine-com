@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noai, noimageai, noindex">
+<meta name="ai-content-declaration" content="human-curated">
+<title>Dashboard — Gestione Pagine SRL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&display=swap">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  :root { --navy:#0D2A4A; --blue:#0066CC; --gold:#C8972B; --grey:#f6f7f9; --muted:#777; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:'Titillium Web',sans-serif; background:var(--grey); color:#222; }
+  header { background:var(--navy); color:#fff; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; }
+  header .brand { font-weight:700; letter-spacing:.5px; }
+  header .brand span { color:var(--gold); }
+  main { max-width:1080px; margin:24px auto; padding:0 20px 60px; }
+  .card { background:#fff; border-radius:8px; box-shadow:0 1px 3px rgba(0,0,0,.06); padding:22px 24px; margin-bottom:20px; }
+  .card h2 { color:var(--navy); font-size:18px; margin:0 0 14px; border-bottom:2px solid var(--blue); padding-bottom:6px; }
+  .row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media (max-width:680px) { .row { grid-template-columns:1fr; } }
+  label { display:block; font-size:12px; color:var(--muted); margin-bottom:4px; font-weight:600; text-transform:uppercase; letter-spacing:.4px; }
+  input, textarea, select { width:100%; padding:9px 11px; border:1px solid #d4d8de; border-radius:5px; font:14px 'Titillium Web',sans-serif; }
+  textarea { min-height:90px; resize:vertical; }
+  button, .btn { background:var(--blue); color:#fff; border:none; padding:10px 18px; border-radius:5px; font:600 14px 'Titillium Web',sans-serif; cursor:pointer; text-decoration:none; display:inline-block; }
+  button:hover, .btn:hover { background:#005bb8; }
+  .btn-gold { background:var(--gold); }
+  .btn-gold:hover { background:#b3851d; }
+  .btn-ghost { background:#fff; color:var(--navy); border:1px solid var(--navy); }
+  .verify-options { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  @media (max-width:680px) { .verify-options { grid-template-columns:1fr; } }
+  .verify-box { border:1px solid #e1e4ea; border-radius:6px; padding:16px; }
+  .verify-box h3 { margin:0 0 8px; font-size:15px; color:var(--navy); }
+  .verify-box code { background:#f0f3f7; padding:2px 6px; border-radius:3px; font-size:12px; word-break:break-all; }
+  .plans { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:8px; }
+  @media (max-width:760px) { .plans { grid-template-columns:1fr; } }
+  .plan { border:2px solid #e1e4ea; border-radius:8px; padding:18px; text-align:center; position:relative; }
+  .plan.free { opacity:.7; }
+  .plan.sponsor { border-color:var(--blue); }
+  .plan.partner { border-color:var(--gold); }
+  .plan h3 { margin:0 0 6px; font-size:16px; letter-spacing:.4px; }
+  .plan .price { font-size:22px; font-weight:700; color:var(--navy); margin:8px 0; }
+  .plan .features { list-style:none; padding:0; margin:10px 0; font-size:13px; color:#444; text-align:left; }
+  .plan .features li { padding:4px 0; border-bottom:1px dashed #eee; }
+  .plan .features li:last-child { border:none; }
+  .badge-current { position:absolute; top:-10px; left:50%; transform:translateX(-50%); background:#999; color:#fff; font-size:10px; padding:2px 8px; border-radius:10px; font-weight:700; }
+  .badge-reco { position:absolute; top:-10px; left:50%; transform:translateX(-50%); background:var(--gold); color:#fff; font-size:10px; padding:2px 8px; border-radius:10px; font-weight:700; }
+  .alert { padding:10px 14px; border-radius:5px; margin-bottom:12px; font-size:13px; }
+  .alert.ok { background:#e6f6ec; color:#0a6b2e; border:1px solid #b9e2c7; }
+  .alert.warn { background:#fff7e0; color:#7a5300; border:1px solid #f1d77e; }
+  .meta-info { font-size:12px; color:var(--muted); margin-top:6px; }
+  .chart-wrap { position:relative; height:240px; }
+  .login-form { max-width:380px; margin:60px auto; background:#fff; padding:32px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,.08); }
+  .login-form h2 { color:var(--navy); margin-top:0; }
+  .hidden { display:none !important; }
+  a.linklike { color:var(--blue); text-decoration:none; font-weight:600; }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">Gestione Pagine<span>.</span> · Dashboard</div>
+  <div id="user-email" style="font-size:13px;opacity:.8;"></div>
+</header>
+
+<main>
+
+  <!-- LOGIN MAGIC LINK -->
+  <div id="login" class="login-form">
+    <h2>Accedi alla dashboard</h2>
+    <p style="font-size:13px;color:var(--muted);">Inserisci la tua email: ti invieremo un link sicuro per accedere senza password.</p>
+    <label for="login-email">Email</label>
+    <input type="email" id="login-email" placeholder="tu@esempio.it" autocomplete="email">
+    <button id="login-btn" style="margin-top:12px;width:100%;">Invia link di accesso</button>
+    <div id="login-msg" class="alert ok hidden" style="margin-top:14px;">Link inviato. Controlla la tua casella.</div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="dash" class="hidden">
+
+    <!-- 1. Verifica -->
+    <div class="card" id="card-verify">
+      <h2>1. Verifica identità</h2>
+      <p style="margin-top:0;color:var(--muted);font-size:14px;">Devi dimostrare di essere titolare/responsabile dell'attività prima di gestirne il profilo.</p>
+      <div class="verify-options">
+        <div class="verify-box">
+          <h3>Opzione A · Google Business</h3>
+          <p style="font-size:13px;">Accedi con l'account Google che gestisce la scheda Google Business: ti riconosciamo automaticamente.</p>
+          <a class="btn btn-ghost" id="google-oauth" href="#">Verifica con Google</a>
+          <div class="meta-info">In arrivo: integrazione OAuth Google.</div>
+        </div>
+        <div class="verify-box">
+          <h3>Opzione B · Meta tag sito</h3>
+          <p style="font-size:13px;">Aggiungi questo meta tag nel <code>&lt;head&gt;</code> della home del tuo sito, poi clicca Verifica.</p>
+          <code id="meta-token">&lt;meta name="gp-claim" content="CARICA EMAIL PRIMA"&gt;</code>
+          <div style="margin-top:10px;">
+            <button id="meta-verify-btn" class="btn-ghost btn">Verifica meta tag</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Profilo -->
+    <div class="card">
+      <h2>2. Modifica profilo</h2>
+      <div id="profile-msg"></div>
+      <div class="row">
+        <div>
+          <label>Nome attività</label>
+          <input id="pf-nome" type="text" disabled>
+        </div>
+        <div>
+          <label>Portale · POI</label>
+          <input id="pf-poi" type="text" disabled>
+        </div>
+      </div>
+      <div class="row" style="margin-top:14px;">
+        <div>
+          <label>Logo (URL immagine)</label>
+          <input id="pf-logo_url" type="url" placeholder="https://...">
+        </div>
+        <div>
+          <label>Telefono</label>
+          <input id="pf-telefono" type="tel">
+        </div>
+      </div>
+      <div class="row" style="margin-top:14px;">
+        <div>
+          <label>Email pubblica</label>
+          <input id="pf-email" type="email">
+        </div>
+        <div>
+          <label>Sito web</label>
+          <input id="pf-sito" type="url" placeholder="https://...">
+        </div>
+      </div>
+      <div style="margin-top:14px;">
+        <label>Descrizione (max 200 caratteri)</label>
+        <textarea id="pf-descrizione" maxlength="200"></textarea>
+      </div>
+      <div style="margin-top:14px;">
+        <label>Orari di apertura</label>
+        <input id="pf-orari" type="text" placeholder="Lun-Dom 9:00-19:00">
+      </div>
+      <div class="row" style="margin-top:14px;">
+        <div>
+          <label>Facebook</label>
+          <input id="pf-social_fb" type="url" placeholder="https://facebook.com/...">
+        </div>
+        <div>
+          <label>Instagram</label>
+          <input id="pf-social_ig" type="url" placeholder="https://instagram.com/...">
+        </div>
+      </div>
+      <div style="margin-top:18px;">
+        <button id="profile-save">Salva modifiche</button>
+      </div>
+    </div>
+
+    <!-- 3. Statistiche -->
+    <div class="card">
+      <h2>3. Statistiche · ultimi 30 giorni</h2>
+      <div class="row">
+        <div>
+          <div class="chart-wrap"><canvas id="chart-views"></canvas></div>
+        </div>
+        <div>
+          <div class="chart-wrap"><canvas id="chart-clicks"></canvas></div>
+        </div>
+      </div>
+      <div class="meta-info" style="margin-top:8px;">I dati si aggiornano in tempo reale dal momento della rivendicazione.</div>
+    </div>
+
+    <!-- 4. Upgrade -->
+    <div class="card">
+      <h2>4. Piani · scegli la visibilità</h2>
+      <div class="plans">
+        <div class="plan free">
+          <div class="badge-current">PIANO ATTUALE</div>
+          <h3>FREE</h3>
+          <div class="price">€0</div>
+          <ul class="features">
+            <li>Pin grigio in mappa</li>
+            <li>Nome + categoria</li>
+            <li>Sito + contatti base</li>
+            <li>Nessuna statistica</li>
+          </ul>
+          <button disabled style="background:#bbb;cursor:not-allowed;">Attuale</button>
+        </div>
+        <div class="plan sponsor">
+          <h3 style="color:var(--blue);">SPONSOR</h3>
+          <div class="price">€80<span style="font-size:13px;font-weight:400;color:var(--muted);">/mese</span></div>
+          <ul class="features">
+            <li>Pin colorato + bordo</li>
+            <li>Logo + descrizione 200ch</li>
+            <li>Foto principale</li>
+            <li>Statistiche dettagliate</li>
+            <li>Listing sponsorizzato sui portali</li>
+          </ul>
+          <button data-livello="sponsor" data-billing="monthly" class="upgrade-btn">Scegli Sponsor</button>
+        </div>
+        <div class="plan partner">
+          <div class="badge-reco">CONSIGLIATO</div>
+          <h3 style="color:var(--gold);">PARTNER ⭐</h3>
+          <div class="price">€2.800<span style="font-size:13px;font-weight:400;color:var(--muted);">/anno</span></div>
+          <ul class="features">
+            <li>Pin gold premium · sempre in cima</li>
+            <li>Gallery foto + descrizione estesa</li>
+            <li>Social Facebook + Instagram</li>
+            <li>Badge ⭐ su tutti i portali</li>
+            <li>Account manager dedicato</li>
+            <li>GMB management incluso</li>
+          </ul>
+          <button data-livello="partner" data-billing="yearly" class="upgrade-btn btn-gold">Diventa Partner</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<script>
+(function(){
+  "use strict";
+  const API = "https://gp-map-api.gestionepaginesrl.workers.dev";
+  const qs = new URLSearchParams(location.search);
+  let state = {
+    email: sessionStorage.getItem("gp_email") || qs.get("email") || "",
+    token: sessionStorage.getItem("gp_magic") || qs.get("magic") || "",
+    portal: qs.get("portal") || "",
+    poi: qs.get("poi") || "",
+  };
+
+  // Pulisci URL dopo aver letto magic+email
+  if (qs.get("magic")) {
+    sessionStorage.setItem("gp_email", state.email);
+    sessionStorage.setItem("gp_magic", state.token);
+    const clean = new URL(location.href);
+    ["magic"].forEach(k => clean.searchParams.delete(k));
+    history.replaceState(null, "", clean.toString());
+  }
+
+  function show(id){ document.getElementById(id).classList.remove("hidden"); }
+  function hide(id){ document.getElementById(id).classList.add("hidden"); }
+
+  function isLoggedIn(){ return !!(state.email && state.token); }
+
+  function boot(){
+    if (isLoggedIn()) {
+      hide("login");
+      show("dash");
+      document.getElementById("user-email").textContent = state.email;
+      document.getElementById("meta-token").textContent = `<meta name="gp-claim" content="${state.email}">`;
+      if (state.portal && state.poi) {
+        document.getElementById("pf-poi").value = `${state.portal} · ${state.poi}`;
+      }
+      loadStats();
+    } else {
+      show("login");
+      hide("dash");
+    }
+  }
+
+  // Login: invia magic link
+  document.getElementById("login-btn").addEventListener("click", async () => {
+    const email = document.getElementById("login-email").value.trim();
+    if (!email) return;
+    try {
+      const r = await fetch(API + "/auth/magic", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      if (r.ok) {
+        document.getElementById("login-msg").classList.remove("hidden");
+      } else {
+        alert("Errore invio magic link");
+      }
+    } catch (e) { alert("Errore di rete"); }
+  });
+
+  // Profilo: salva
+  document.getElementById("profile-save").addEventListener("click", async () => {
+    if (!state.portal || !state.poi) {
+      alert("Apri prima il claim dal popup mappa per legare il POI");
+      return;
+    }
+    const fields = {};
+    ["logo_url","telefono","email","sito","descrizione","orari","social_fb","social_ig"].forEach(k => {
+      const v = document.getElementById("pf-" + k).value.trim();
+      if (v) fields[k] = v;
+    });
+    const r = await fetch(API + "/profile/update", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        token: state.token, email: state.email,
+        portal: state.portal, poi_id: state.poi, fields,
+      }),
+    });
+    const box = document.getElementById("profile-msg");
+    if (r.ok) {
+      box.className = "alert ok";
+      box.textContent = "Profilo aggiornato.";
+    } else {
+      const j = await r.json().catch(() => ({}));
+      box.className = "alert warn";
+      box.textContent = "Errore: " + (j.error || r.status);
+    }
+  });
+
+  // Verify meta tag (stub client-side)
+  document.getElementById("meta-verify-btn").addEventListener("click", () => {
+    alert("Verifica in corso lato server (in arrivo): controlleremo il meta tag sul tuo dominio entro 60 secondi.");
+  });
+
+  // Upgrade Stripe
+  document.querySelectorAll(".upgrade-btn").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      if (!state.portal || !state.poi) {
+        alert("Apri prima il claim dal popup mappa per legare il POI all'upgrade");
+        return;
+      }
+      const livello = btn.dataset.livello;
+      const billing = btn.dataset.billing;
+      btn.disabled = true; btn.textContent = "Generazione checkout…";
+      try {
+        const r = await fetch(API + "/upgrade", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({
+            poi_id: state.poi, portal: state.portal,
+            email: state.email, livello, billing,
+          }),
+        });
+        const j = await r.json();
+        if (j.checkout_url) location.href = j.checkout_url;
+        else alert("Errore: " + (j.error || "sconosciuto"));
+      } catch (e) { alert("Errore di rete"); }
+      finally { btn.disabled = false; btn.textContent = livello === "partner" ? "Diventa Partner" : "Scegli Sponsor"; }
+    });
+  });
+
+  async function loadStats() {
+    try {
+      const url = `${API}/stats?email=${encodeURIComponent(state.email)}&token=${encodeURIComponent(state.token)}`;
+      const r = await fetch(url);
+      const j = await r.json();
+      const daily = (j.stats || []).flatMap(s => s.daily || []);
+      const byDate = {};
+      for (const d of daily) {
+        byDate[d.date] = byDate[d.date] || { views: 0, clicks: 0 };
+        byDate[d.date].views += d.views || 0;
+        byDate[d.date].clicks += d.clicks || 0;
+      }
+      const dates = Object.keys(byDate).sort();
+      const views = dates.map(d => byDate[d].views);
+      const clicks = dates.map(d => byDate[d].clicks);
+      drawChart("chart-views", "Views", dates, views, "#0066CC");
+      drawChart("chart-clicks", "Click", dates, clicks, "#C8972B");
+    } catch (e) {
+      // grafici vuoti
+      drawChart("chart-views", "Views", [], [], "#0066CC");
+      drawChart("chart-clicks", "Click", [], [], "#C8972B");
+    }
+  }
+
+  function drawChart(id, label, labels, data, color) {
+    const ctx = document.getElementById(id);
+    if (!ctx || !window.Chart) return;
+    new Chart(ctx, {
+      type: "line",
+      data: { labels, datasets: [{ label, data, borderColor: color, backgroundColor: color + "33", tension: .3, fill: true }] },
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: true } } },
+    });
+  }
+
+  boot();
+})();
+</script>
+</body>
+</html>
