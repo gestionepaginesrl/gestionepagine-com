@@ -9,7 +9,7 @@
 <meta property="og:title" content="Lino — il tuo assistente WhatsApp che non dorme mai">
 <meta property="og:description" content="Rispondi ai clienti 24/7 su WhatsApp, in automatico. Tu intervieni solo quando vuoi.">
 <meta property="og:type" content="website">
-<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
   --blu:#0066CC;--blu-d:#004FA3;--blu-l:#E8F1FB;--blu-xl:#F0F6FF;
@@ -25,8 +25,8 @@ a{color:inherit}
 .btn:hover{background:var(--wa-d);transform:translateY(-1px)}
 .btn--blu{background:var(--blu)}.btn--blu:hover{background:var(--blu-d)}
 /* header */
-.top{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
-.top__logo{font-weight:900;font-size:18px}.top__logo span{color:var(--blu)}
+
+
 /* hero */
 .hero{background:linear-gradient(160deg,var(--inchiostro),#0a2a44);color:#fff;padding:64px 0 72px;text-align:center}
 .hero .eb{display:inline-flex;align-items:center;gap:8px;background:rgba(37,211,102,.15);color:#7ef0a8;font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;padding:7px 16px;border-radius:999px;margin-bottom:22px}
@@ -78,26 +78,366 @@ section.sec{padding:64px 0}
 .form-card .btn{width:100%;margin-top:8px}
 #okmsg{display:none;background:var(--verde);color:#fff;padding:16px;border-radius:10px;text-align:center;font-weight:700;margin-top:14px}
 /* footer */
-footer{background:var(--inchiostro);color:#c5d4e2;padding:40px 0 30px;font-size:.9rem}
-.foot{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
-.foot a{color:#9fc3e6;text-decoration:none}
-.foot__links{display:flex;gap:20px;flex-wrap:wrap}
+
+
+
+
+
+/* === header/footer gestionepagine.com (allineati) === */
+
+  :root {
+    --bg: #FFFFFF;
+    --bg-alt: #F5F5F5;
+    --ink: #17324D;
+    --ink-soft: #5C6F82;
+    --line: #C5C7C9;
+    --line-soft: #E3E4E6;
+    --primary: #0066CC;
+    --primary-hover: #004C99;
+    --primary-dark: #003366;
+    --ocra: #C9A227;
+    --ocra-soft: #E8D693;
+    --error: #D9364F;
+    --success: #008758;
+
+    --font-display: "Titillium Web", -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: "Titillium Web", -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: "Roboto Mono", ui-monospace, "SF Mono", monospace;
+
+    --maxw: 1200px;
+    --pad: clamp(20px, 4vw, 48px);
+  }
+
+
+  /* === TOP BAR === */
+  .topbar {
+    border-bottom: 1px solid var(--line);
+    background: rgba(250, 250, 247, 0.85);
+    backdrop-filter: saturate(140%) blur(8px);
+    -webkit-backdrop-filter: saturate(140%) blur(8px);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .topbar-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 18px var(--pad);
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 24px;
+  }
+
+  /* Colonna 1 — testo + badge, allineati a sinistra */
+  .topbar-brand {
+    grid-column: 1;
+    justify-self: start;
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    gap: 3px;
+  }
+
+  .topbar-brand .logo-name {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    color: var(--primary);
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .topbar-brand .logo-tag {
+    font-family: var(--font-mono);
+    font-size: 8.5px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+  }
+
+  /* Colonna 2 — solo icona logotipo, centrata */
+  .topbar-logo {
+    grid-column: 2;
+    justify-self: center;
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary);
+    transition: opacity .2s ease;
+  }
+
+  .topbar-logo:hover { opacity: 0.78; }
+
+  .topbar-logo .logo-icon {
+    height: 38px;
+    width: auto;
+    display: block;
+  }
+
+  /* Colonna 3 — meta dot, allineato a destra */
+  .topbar-meta {
+    grid-column: 3;
+    justify-self: end;
+  }
+
+  @media (max-width: 480px) {
+    .topbar-brand { display: none; }
+    .topbar-logo .logo-icon { height: 32px; }
+  }
+
+  .topbar-meta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .topbar-meta .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--ocra);
+    box-shadow: 0 0 0 0 rgba(201, 162, 39, 0.5);
+    animation: pulse 2.4s ease-out infinite;
+  }
+
+
+  /* === FOOTER === */
+  footer {
+    border-top: 1px solid var(--line);
+    background: var(--bg);
+    margin-top: clamp(40px, 6vh, 80px);
+  }
+
+
+  .footer-locations {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: clamp(40px, 6vh, 64px) var(--pad) 32px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(24px, 3vw, 40px);
+  }
+
+  .footer-locations + .footer-locations {
+    padding-top: 0;
+  }
+
+  .footer-loc h4 {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ocra);
+    font-weight: 500;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .footer-loc-name {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .footer-loc-addr {
+    font-size: 12px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+  }
+
+  .footer-loc-rea {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--ink-soft);
+    letter-spacing: 0.02em;
+  }
+
+
+  .footer-legal {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 24px var(--pad);
+    border-top: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: center;
+    font-size: 12px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  .footer-legal-info strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .footer-legal-info .piva {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    margin-top: 2px;
+  }
+
+  .footer-legal-info a {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .footer-legal-info a:hover {
+    border-color: var(--ocra);
+  }
+
+
+  .footer-socials {
+    display: flex;
+    gap: 12px;
+  }
+
+  .footer-socials a {
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink-soft);
+    border: 1px solid var(--line);
+    transition: all .2s ease;
+  }
+
+  .footer-socials a:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+    background: #FFF;
+  }
+
+  .footer-socials svg { width: 16px; height: 16px; fill: currentColor; }
+
+
+  .footer-credits {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 20px var(--pad);
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+  }
+
+  .footer-credits a { color: var(--ink-soft); }
+
+  .footer-credits a:hover { color: var(--ocra); }
+
+
+  @media (max-width: 900px) {
+    .hero {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+    .topbar-meta span:not(.dot) { display: none; }
+    .footer-legal {
+      grid-template-columns: 1fr;
+      text-align: left;
+    }
+  }
+
+
+  @media (max-width: 600px) {
+    .footer-locations {
+      grid-template-columns: 1fr;
+    }
+  }
+
+
+  @media (max-width: 480px) {
+    .branches {
+      grid-template-columns: 1fr;
+    }
+    h1 { font-size: 38px; }
+    .footer-credits { justify-content: flex-start; }
+  }
+
+
+  /* === VERIFIED BADGE === */
+  .verified-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-left: 5px;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+  }
+
+  .verified-badge svg {
+    width: 18px;
+    height: 18px;
+    filter: drop-shadow(0 1px 2px rgba(0,102,204,0.25));
+    transition: transform .2s ease;
+  }
+
+  .topbar-logo:hover .verified-badge svg {
+    transform: scale(1.12);
+  }
 </style>
 </head>
 <body>
 
-<header class="wrap"><div class="top">
-  <div class="top__logo">Gestione<span>Pagine</span></div>
-  <a class="btn btn--blu" href="#attiva" style="padding:11px 22px;font-size:.95rem">Richiedi attivazione</a>
-</div></header>
+<header class="topbar">
+  <div class="topbar-inner">
+
+    <!-- Colonna 1: testo + badge verificato -->
+    <div class="topbar-brand">
+      <span class="logo-name">Gestionepagine<span class="verified-badge" aria-label="Profilo verificato" title="Gestione Pagine S.R.L. — Profilo verificato">
+          <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="10" cy="10" r="10" fill="#0066CC"/>
+            <path d="M6 10.5l2.8 2.8 5.2-5.6" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </span></span>
+      <span class="logo-tag">DIGITAL FACTORY · S.R.L.</span>
+    </div>
+
+    <!-- Colonna 2: solo logotipo icona, centrato -->
+    <a href="/" class="topbar-logo" aria-label="Gestione Pagine S.R.L.">
+      <img src="/Icon_Gestione_Pagine_BLU_192.png" alt="" class="logo-icon" width="40" height="40">
+    </a>
+
+    <!-- Colonna 3: CTA -->
+    <div class="topbar-meta" style="display:flex;gap:18px;align-items:center;">
+      <a href="/mappa-commerciale" style="font-family:'Titillium Web',sans-serif;font-weight:600;color:#fff;text-decoration:none;font-size:13px;">Mappa Commerciale</a>
+      <a href="/portali" style="font-family:'Titillium Web',sans-serif;font-weight:700;color:#C8972B;text-decoration:none">Sei un'attività?</a>
+    </div>
+  </div>
+</header>
 
 <section class="hero">
   <div class="wrap">
     <span class="eb">💬 Lino · il tuo assistente WhatsApp</span>
-    <h1>Ciao, sono Lino.<br>Rispondo ai tuoi clienti mentre tu lavori.</h1>
+    <h1>Ciao, sono Lino,<br>il centra<span style="color:var(--wa)">Lino</span>.</h1>
     <p>L'assistente WhatsApp che risponde ai tuoi clienti 24/7 — orari, prenotazioni, info — e ti passa la parola quando serve.</p>
     <a class="btn" href="#attiva">Richiedi attivazione →</a>
-    <div class="sub2">Il tuo centra-<strong>Lino</strong> su WhatsApp 😉 · Attivazione assistita · API ufficiale Meta · un solo numero</div>
+    <div class="sub2">Attivazione assistita · API ufficiale Meta · un solo numero</div>
   </div>
 </section>
 
@@ -182,13 +522,135 @@ footer{background:var(--inchiostro);color:#c5d4e2;padding:40px 0 30px;font-size:
 </section>
 
 <footer>
-  <div class="wrap foot">
-    <div><strong style="color:#fff">Lino</strong> · l'assistente WhatsApp di Gestione Pagine S.R.L.</div>
-    <div class="foot__links">
-      <a href="https://gestionepagine.com/portali/">Tutti i servizi</a>
-      <a href="mailto:redazione@gestionepagine.com">redazione@gestionepagine.com</a>
+
+  <!-- Sedi e uffici (prima linea: commerciale) -->
+  <div class="footer-locations">
+
+    <div class="footer-loc">
+      <h4>Sede Legale</h4>
+      <div class="footer-loc-name">Roma</div>
+      <div class="footer-loc-addr">
+        Via della Cellulosa<br>
+        Roma (RM)
+      </div>
+      <div class="footer-loc-rea">REA RM-1517243</div>
+    </div>
+
+    <div class="footer-loc">
+      <h4>Ufficio Palazzo Stampa</h4>
+      <div class="footer-loc-name">Bergamo</div>
+      <div class="footer-loc-addr">
+        Palazzo Stampa<br>
+        Bergamo (BG)
+      </div>
+      <div class="footer-loc-rea">REA BG-470039</div>
+    </div>
+
+    <div class="footer-loc">
+      <h4>Warehouse</h4>
+      <div class="footer-loc-name">Norcia</div>
+      <div class="footer-loc-addr">
+        Zona Industriale<br>
+        Norcia (PG)
+      </div>
+      <div class="footer-loc-rea">REA PG-299718</div>
+    </div>
+
+    <div class="footer-loc">
+      <h4>Operations</h4>
+      <div class="footer-loc-name">Formia &amp; Gaeta</div>
+      <div class="footer-loc-addr">
+        Formia, Latina (LT)
+      </div>
+      <div class="footer-loc-rea">&nbsp;</div>
+    </div>
+
+  </div>
+
+  <!-- Operations & Logistica (seconda linea) -->
+  <div class="footer-locations">
+
+    <div class="footer-loc">
+      <h4>Logistica Nord Italia</h4>
+      <div class="footer-loc-name">Brescia</div>
+      <div class="footer-loc-addr">
+        Gianico, Brescia (BS)
+      </div>
+      <div class="footer-loc-rea">&nbsp;</div>
+    </div>
+
+    <div class="footer-loc">
+      <h4>Logistica Centro Italia</h4>
+      <div class="footer-loc-name">Roma</div>
+      <div class="footer-loc-addr">
+        Capena, Roma (RM)
+      </div>
+      <div class="footer-loc-rea">&nbsp;</div>
+    </div>
+
+    <div class="footer-loc">
+      <h4>Laboratorio Produzione</h4>
+      <div class="footer-loc-name">Milano</div>
+      <div class="footer-loc-addr">
+        Buccinasco, Milano (MI)
+      </div>
+      <div class="footer-loc-rea">&nbsp;</div>
+    </div>
+
+    <div class="footer-loc">
+      <h4>Hub Logistic</h4>
+      <div class="footer-loc-name">Norcia</div>
+      <div class="footer-loc-addr">
+        Zona Industriale<br>
+        Norcia (PG)<br>
+        <span style="font-family: var(--font-mono); font-size: 10px; color: var(--ocra);">in sviluppo · Invitalia</span>
+      </div>
+      <div class="footer-loc-rea">&nbsp;</div>
+    </div>
+
+  </div>
+
+  <!-- Legal + social -->
+  <div class="footer-legal">
+
+    <div class="footer-legal-info">
+      <strong>Gestione Pagine S.R.L.</strong> &nbsp;·&nbsp;
+      <a href="mailto:info@gestionepagine.com">info@gestionepagine.com</a>
+      <div class="piva">P.IVA IT14388161003</div>
+    </div>
+
+    <div class="footer-socials" aria-label="Social Gestione Pagine S.R.L.">
+      <a href="https://it.linkedin.com/company/gestionepaginesrl" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 18.34V10.5H5.67v7.84h2.67zM7 9.32a1.55 1.55 0 1 0 0-3.1 1.55 1.55 0 0 0 0 3.1zm11.34 9.02v-4.3c0-2.3-1.23-3.36-2.87-3.36-1.32 0-1.91.72-2.24 1.23v-1.05h-2.5c.04.71 0 7.84 0 7.84h2.5v-4.38c0-.22.02-.45.08-.6.18-.45.59-.91 1.27-.91.9 0 1.26.68 1.26 1.68v4.21h2.5z"/></svg>
+      </a>
+      <a href="https://www.facebook.com/gestionepaginesrl" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.49-3.89 3.77-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/gestionepagine.srl/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9s.68.82.9 1.38c.16.42.36 1.06.41 2.23.06 1.25.07 1.62.07 4.85s-.01 3.6-.07 4.85c-.05 1.17-.25 1.8-.41 2.23a3.71 3.71 0 0 1-.9 1.38 3.71 3.71 0 0 1-1.38.9c-.42.16-1.06.36-2.23.41-1.25.06-1.62.07-4.85.07s-3.6-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.71 3.71 0 0 1-1.38-.9 3.71 3.71 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.25-.07-1.62-.07-4.85s.01-3.6.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38s.82-.68 1.38-.9c.42-.16 1.06-.36 2.23-.41C8.4 2.21 8.77 2.2 12 2.2zm0 1.62c-3.17 0-3.55.01-4.8.07-1.07.05-1.65.23-2.04.38-.51.2-.88.44-1.26.83-.39.39-.63.75-.83 1.26-.15.4-.33.97-.38 2.04-.06 1.25-.07 1.63-.07 4.8s.01 3.55.07 4.8c.05 1.07.23 1.65.38 2.04.2.51.44.88.83 1.26.39.39.75.63 1.26.83.4.15.97.33 2.04.38 1.25.06 1.63.07 4.8.07s3.55-.01 4.8-.07c1.07-.05 1.65-.23 2.04-.38.51-.2.88-.44 1.26-.83.39-.39.63-.75.83-1.26.15-.4.33-.97.38-2.04.06-1.25.07-1.63.07-4.8s-.01-3.55-.07-4.8c-.05-1.07-.23-1.65-.38-2.04a3.4 3.4 0 0 0-.83-1.26 3.4 3.4 0 0 0-1.26-.83c-.4-.15-.97-.33-2.04-.38-1.25-.06-1.63-.07-4.8-.07zm0 2.76a5.42 5.42 0 1 1 0 10.84 5.42 5.42 0 0 1 0-10.84zm0 8.94a3.52 3.52 0 1 0 0-7.04 3.52 3.52 0 0 0 0 7.04zm6.9-9.16a1.27 1.27 0 1 1-2.54 0 1.27 1.27 0 0 1 2.54 0z"/></svg>
+      </a>
+      <a href="/" aria-label="Gestione Pagine S.R.L." style="border:none; background:transparent; padding:0; width:36px; height:36px; display:inline-flex; align-items:center; justify-content:center;">
+        <img src="/Icon_Gestione_Pagine_BLU_192.png" alt="Gestione Pagine" width="26" height="26" style="opacity:0.55; transition:opacity .2s ease;">
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Bottom credits -->
+  <div class="footer-credits">
+    <div>
+      Supported <a href="https://castelluccio.org" target="_blank" rel="noopener">Castelluccio di Norcia</a> since 2016 &nbsp;·&nbsp;
+      © <a href="https://restoinpiedi.it" target="_blank" rel="noopener">Resto in Piedi</a> <span style="color: var(--ocra);">♥</span> 2016—2026
+    </div>
+    <div>
+      <a href="/cookie-policy.html">Cookie Policy</a> &nbsp;·&nbsp;
+      <a href="/privacy-policy.html">Privacy</a>
+    </div>
+    <div>
+      © Gestione Pagine S.R.L.
     </div>
   </div>
+
 </footer>
 
 <script>
