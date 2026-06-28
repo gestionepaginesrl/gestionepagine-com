@@ -1,0 +1,3 @@
+# Le pagine reali (file statici) sono servite normalmente.
+# Qualsiasi path inesistente (es. vecchie URL dropshipping) → 404 vero, così Google le rimuove dall'indice.
+/*    /404.html    404
