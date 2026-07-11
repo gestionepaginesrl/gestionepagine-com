@@ -25,11 +25,11 @@ a{color:inherit;text-decoration:none}
 .nav{position:sticky;top:0;z-index:100;background:var(--bianco);border-bottom:1px solid var(--bordo);box-shadow:0 1px 8px rgba(0,102,204,.06)}
 .nav-i{max-width:1200px;margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .logo{display:flex;align-items:center;gap:10px}
-.logo-mark{width:32px;height:32px;background:var(--blu);border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;color:#fff;font-family:'Titillium Web',sans-serif;flex-shrink:0}
+.logo-mark{width:32px;height:32px;background:var(--blu);border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff;font-family:'Titillium Web',sans-serif;flex-shrink:0}
 .logo-text{font-family:'Titillium Web',sans-serif;font-size:15px;font-weight:700;color:var(--inchiostro)}
 .logo-text span{color:var(--blu)}
-.nav-links{display:flex;align-items:center;gap:4px}
-.nav-links a{font-size:13px;font-weight:500;color:var(--nebbia);padding:6px 12px;border-radius:6px;transition:all .15s}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-links a{font-size:12.5px;font-weight:500;color:var(--nebbia);padding:6px 9px;border-radius:6px;transition:all .15s;white-space:nowrap}
 .nav-links a:hover{color:var(--blu);background:var(--blu-l)}
 .nav-cta{background:var(--blu);color:#fff;padding:9px 20px;border-radius:7px;font-size:13px;font-weight:600;transition:background .15s;white-space:nowrap}
 .nav-cta:hover{background:var(--blu-d);color:#fff}
@@ -42,7 +42,7 @@ a{color:inherit;text-decoration:none}
 .hero-from-dot{width:6px;height:6px;background:#4DA6FF;border-radius:50%;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 .hero-from-txt{font-size:11px;font-weight:600;color:#7EC8FF;letter-spacing:.08em;text-transform:uppercase}
-.hero h1{font-family:'Titillium Web',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:800;color:#fff;line-height:1.08;letter-spacing:-.02em;margin-bottom:18px}
+.hero h1{font-family:'Titillium Web',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:600;color:#fff;line-height:1.08;letter-spacing:-.02em;margin-bottom:18px}
 .hero h1 em{color:#4DA6FF;font-style:normal}
 .hero-sub{font-size:16px;color:rgba(255,255,255,.6);line-height:1.75;margin-bottom:32px;max-width:480px}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
@@ -52,7 +52,7 @@ a{color:inherit;text-decoration:none}
 .btn-ghost:hover{background:rgba(255,255,255,.14)}
 .hero-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 .hstat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:20px}
-.hstat-n{font-family:'Titillium Web',sans-serif;font-size:30px;font-weight:800;color:#fff;line-height:1;margin-bottom:4px}
+.hstat-n{font-family:'Titillium Web',sans-serif;font-size:30px;font-weight:700;color:#fff;line-height:1;margin-bottom:4px}
 .hstat-l{font-size:11px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em}
 
 /* PORTALI PILL BAR */
@@ -68,7 +68,7 @@ a{color:inherit;text-decoration:none}
 .eco{padding:72px 24px;background:var(--bianco)}
 .sec-i{max-width:1200px;margin:0 auto}
 .sec-tag{display:inline-block;background:var(--blu-l);color:var(--blu);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:14px}
-.sec-h{font-family:'Titillium Web',sans-serif;font-size:clamp(26px,3vw,40px);font-weight:800;color:var(--inchiostro);line-height:1.15;margin-bottom:12px}
+.sec-h{font-family:'Titillium Web',sans-serif;font-size:clamp(26px,3vw,40px);font-weight:600;color:var(--inchiostro);line-height:1.15;margin-bottom:12px}
 .sec-h em{color:var(--blu);font-style:normal}
 .sec-sub{font-size:15px;color:var(--nebbia);line-height:1.75;max-width:560px;margin-bottom:48px}
 
@@ -96,7 +96,7 @@ a{color:inherit;text-decoration:none}
 .srv.featured .srv-name{color:#fff}
 .srv-desc{font-size:13px;color:var(--nebbia);line-height:1.65;margin-bottom:20px;flex:1}
 .srv.featured .srv-desc{color:rgba(255,255,255,.6)}
-.srv-price{font-family:'Titillium Web',sans-serif;font-size:28px;font-weight:800;color:var(--inchiostro);margin-bottom:4px}
+.srv-price{font-family:'Titillium Web',sans-serif;font-size:28px;font-weight:700;color:var(--inchiostro);margin-bottom:4px}
 .srv.featured .srv-price{color:#fff}
 .srv-price-sub{font-size:11px;color:var(--nebbia);margin-bottom:20px}
 .srv.featured .srv-price-sub{color:rgba(255,255,255,.4)}
@@ -117,7 +117,7 @@ a{color:inherit;text-decoration:none}
 .gmb-section{padding:72px 24px;background:var(--bianco)}
 .gmb-card{background:var(--inchiostro);border-radius:16px;padding:48px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
 .gmb-tag{display:inline-block;background:rgba(77,166,255,.15);color:#7EC8FF;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:16px}
-.gmb-card h2{font-family:'Titillium Web',sans-serif;font-size:clamp(24px,2.5vw,34px);font-weight:800;color:#fff;line-height:1.2;margin-bottom:12px}
+.gmb-card h2{font-family:'Titillium Web',sans-serif;font-size:clamp(24px,2.5vw,34px);font-weight:700;color:#fff;line-height:1.2;margin-bottom:12px}
 .gmb-card h2 em{color:#4DA6FF;font-style:normal}
 .gmb-card p{font-size:14px;color:rgba(255,255,255,.55);line-height:1.75;margin-bottom:28px}
 .gmb-list{list-style:none}
@@ -170,7 +170,7 @@ a{color:inherit;text-decoration:none}
 .form-proof h3{font-family:'Titillium Web',sans-serif;font-size:22px;font-weight:700;color:var(--inchiostro);margin-bottom:24px}
 .proof-item{display:flex;gap:16px;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--bordo)}
 .proof-item:last-child{border:none}
-.proof-n{font-family:'Titillium Web',sans-serif;font-size:28px;font-weight:800;color:var(--blu);flex-shrink:0;line-height:1;width:56px}
+.proof-n{font-family:'Titillium Web',sans-serif;font-size:28px;font-weight:700;color:var(--blu);flex-shrink:0;line-height:1;width:56px}
 .proof-t{font-size:14px;font-weight:600;color:var(--inchiostro);margin-bottom:4px}
 .proof-d{font-size:13px;color:var(--nebbia);line-height:1.6}
 
@@ -194,6 +194,7 @@ a{color:inherit;text-decoration:none}
   .funnel{flex-direction:column}
   .funnel-step::after{content:'↓';right:auto;left:50%;top:auto;bottom:-14px;transform:translateX(-50%)}
 }
+@media(max-width:960px){ .nav-links{display:none} }
 @media(max-width:640px){
   .srv-grid{grid-template-columns:1fr}
   .family-grid{grid-template-columns:1fr}
@@ -383,12 +384,17 @@ a{color:inherit;text-decoration:none}
       <img src="https://gestionepagine.com/Icon_Gestione_Pagine_BLU_192.png" alt="Gestione Pagine" style="width:32px;height:32px;display:block;flex-shrink:0">
       <span class="logo-text" style="line-height:1.05">Gestionepagine<small style="display:block;font-size:9px;font-weight:700;letter-spacing:.14em;color:var(--nebbia);text-transform:uppercase;margin-top:1px">Digital Factory · S.R.L.</small></span>
     </a>
-    <div class="nav-links">
-      <a href="#servizi">Servizi</a>
-      <a href="#gmb">Google Business</a>
-      <a href="#portali">I portali</a>
+    <!-- CONNETTORE servizi cross-tool (allineato al topbar di gestionepagine.com) -->
+    <div class="nav-links" aria-label="Servizi del network">
+      <a href="#portali">Portali</a>
+      <a href="https://radar.gestionepagine.com/" target="_blank" rel="noopener">Radar Bandi</a>
+      <a href="https://businessmanager.gestionepagine.com/" target="_blank" rel="noopener">Business Manager</a>
+      <a href="/gestione-google-business/">Google Business</a>
+      <a href="/lino/">Lino</a>
+      <a href="/mappa-commerciale/">Mappa</a>
+      <a href="/dashboard/">Dashboard</a>
     </div>
-    <a href="https://calendly.com/gestionepagine" target="_blank" rel="noopener" class="nav-cta">Richiedi info →</a>
+    <a href="#contatto" class="nav-cta">Richiedi info →</a>
   </div>
 </nav>
 
@@ -662,7 +668,7 @@ a{color:inherit;text-decoration:none}
           <li>Protezione della scheda da modifiche non autorizzate</li>
         </ul>
         <div style="margin-top:28px">
-          <span style="font-family:'Titillium Web',sans-serif;font-size:28px;font-weight:800;color:#fff">€49</span>
+          <span style="font-family:'Titillium Web',sans-serif;font-size:28px;font-weight:700;color:#fff">€49</span>
           <span style="font-size:13px;color:rgba(255,255,255,.4)">/mese — incluso nel Bundle Starter</span>
         </div>
       </div>
@@ -727,7 +733,7 @@ a{color:inherit;text-decoration:none}
           <span class="family-meta">5 portali · 3.524 POI</span>
         </div>
         <div class="family-grid">
-          <a class="portale-card is-hub" href="https://mountaking.com" target="_blank" rel="noopener"><div class="portale-dot"></div><div class="portale-info"><div class="portale-name">mountaking.com</div><div class="portale-poi">2.235 POI outdoor</div></div></a>
+          <a class="portale-card is-hub" href="https://mountaking.com" target="_blank" rel="noopener"><div class="portale-dot"></div><div class="portale-info"><div class="portale-name">mountaking.com</div><div class="portale-poi">3.044 rifugi e bivacchi mappati</div></div></a>
           <a class="portale-card is-hub" href="https://rifugi.org" target="_blank" rel="noopener"><div class="portale-dot"></div><div class="portale-info"><div class="portale-name">rifugi.org</div><div class="portale-poi">699 rifugi — portale principale</div></div></a>
           <a class="portale-card is-sub" href="https://rifugialpi.com" target="_blank" rel="noopener"><div class="portale-dot"></div><div class="portale-info"><div class="portale-name">rifugialpi.com</div><div class="portale-poi">350 rifugi alpini</div></div></a>
           <a class="portale-card is-sub" href="https://rifugiappennini.com" target="_blank" rel="noopener"><div class="portale-dot"></div><div class="portale-info"><div class="portale-name">rifugiappennini.com</div><div class="portale-poi">200 rifugi appenninici</div></div></a>
@@ -742,7 +748,7 @@ a{color:inherit;text-decoration:none}
           <span class="family-meta">25 portali · mari e laghi · 31.000+ POI mappati · 462 comuni costieri</span>
         </div>
         <div class="family-grid">
-          <a class="portale-card is-hub" href="https://leriviere.it" target="_blank" rel="noopener"><div class="portale-dot"></div><div class="portale-info"><div class="portale-name">leriviere.it</div><div class="portale-poi">Hub editoriale 24 riviere — 89M turisti</div></div></a>
+          <a class="portale-card is-hub" href="https://leriviere.it" target="_blank" rel="noopener"><div class="portale-dot"></div><div class="portale-info"><div class="portale-name">leriviere.it</div><div class="portale-poi">Hub editoriale 24 riviere — 148K ricerche/mese su Google</div></div></a>
           <a class="portale-card is-hub" href="https://larivieraligure.com" target="_blank" rel="noopener"><div class="portale-dot"></div><div class="portale-info"><div class="portale-name">larivieraligure.com</div><div class="portale-poi">La nostra rete a zoom: dal nazionale al tuo borgo</div></div></a>
           <a class="portale-card is-sub" href="https://leriviere.it/rivieraligure/" target="_blank" rel="noopener"><div class="portale-dot"></div><div class="portale-info"><div class="portale-name">Riviera Ligure</div><div class="portale-poi">Hub regionale: 3 riviere liguri</div></div></a>
           <a class="portale-card is-sub" href="https://leriviere.it/rivieratriestina" target="_blank" rel="noopener"><div class="portale-dot"></div><div class="portale-info"><div class="portale-name">Riviera Triestina</div><div class="portale-poi">Trieste, Miramare, Duino — 1.239 attività</div></div></a>
@@ -1012,7 +1018,7 @@ a{color:inherit;text-decoration:none}
 const PORTALI={
   approdo:{nome:'Approdo.org',desc:'portolano nautico — 894 approdi'},
   rifugi:{nome:'Rifugi.org',desc:'rifugi italiani — 699 rifugi'},
-  mountaking:{nome:'Mountaking.com',desc:'outdoor atlas — 2.235 POI'},
+  mountaking:{nome:'Mountaking.com',desc:'atlante outdoor — 3.044 rifugi e bivacchi'},
   romagnola:{nome:'LaRivieraRomagnola.com',desc:'Rimini, Riccione, Cesenatico'},
   deglidei:{nome:'RivieradegliDei.com',desc:'Tropea, Capo Vaticano, Pizzo'},
   ulisse:{nome:'LaRivieraDiUlisse.com',desc:'Circeo, Gaeta, Ponza'},
