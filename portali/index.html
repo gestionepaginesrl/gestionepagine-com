@@ -371,7 +371,30 @@ a{color:inherit;text-decoration:none}
     }
     h1 { font-size: 38px; }
     .footer-credits { justify-content: flex-start; }
+    .proof-band-i{flex-direction:column;text-align:center;gap:18px}
+    .founding-band{flex-direction:column;align-items:flex-start;gap:10px}
   }
+  /* --- Conversione: banda founding (scarsità + anchor + risk reversal) --- */
+  .founding-band{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:22px;padding:14px 18px;border:1px solid var(--ocra);border-left:4px solid var(--ocra);border-radius:12px;background:linear-gradient(90deg,rgba(201,162,39,.09),rgba(201,162,39,.02))}
+  .founding-flag{display:inline-flex;align-items:center;gap:7px;font-family:'Titillium Web',sans-serif;font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--oro)}
+  .founding-flag .hero-from-dot{background:var(--ocra)}
+  .founding-copy{font-family:'Titillium Web',sans-serif;font-size:14px;color:var(--grafite);line-height:1.45}
+  .founding-copy b{color:var(--inchiostro)}
+  .founding-copy s{color:var(--nebbia);font-weight:400}
+  .founding-copy .fnow{color:var(--verde);font-weight:800}
+  /* --- Banda "traffico reale" (prova sociale + FOMO) --- */
+  .proof-band{background:var(--inchiostro);color:#fff}
+  .proof-band-i{max-width:1200px;margin:0 auto;padding:26px clamp(20px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
+  .proof-num{display:flex;flex-direction:column;gap:2px}
+  .proof-num .pn{font-family:'Titillium Web',sans-serif;font-weight:800;font-size:30px;line-height:1;color:#fff;letter-spacing:-.01em}
+  .proof-num .pl{font-size:12px;color:#9FB3C9;letter-spacing:.03em}
+  .proof-num .pn em{color:var(--ocra);font-style:normal}
+  .proof-claim{flex:1;min-width:260px;font-family:'Titillium Web',sans-serif;font-size:15px;line-height:1.5;color:#E4ECF4}
+  .proof-claim b{color:#fff}
+  .proof-claim .pc-cta{display:inline-block;margin-top:8px;font-weight:700;color:var(--ocra);text-decoration:none;border-bottom:1px solid rgba(201,162,39,.5)}
+  /* --- CTA per-famiglia (link al prodotto) --- */
+  .family-cta{font-family:'Titillium Web',sans-serif;font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--verde);text-decoration:none;white-space:nowrap;border:1px solid var(--verde);border-radius:999px;padding:5px 12px;transition:.15s}
+  .family-cta:hover{background:var(--verde);color:#fff}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
 </head>
@@ -407,14 +430,18 @@ a{color:inherit;text-decoration:none}
         <div class="hero-from-txt">Sei arrivato da <span id="from-name">uno dei nostri portali</span></div>
       </div>
       <h1>La tua attività<br>è già sui nostri portali.<br><em>Rendiamola visibile.</em></h1>
-      <p class="hero-sub">Mappiamo 24.527 attività turistiche italiane su 32 portali verticali, 507 comuni e 16 regioni. Hotel, stabilimenti, ristoranti, cantieri nautici, rifugi, agriturismi. Gestiamo la loro presenza digitale: listing, Google Business, Meta Ads. Metti la tua attività in evidenza in cima alla pagina che i turisti guardano ("dove dormire a {città}"): 89€ a stagione, pagamento unico — founding pilota Liguria 49€. Bassa stagione inclusa, gratis. Non promettiamo prenotazioni, promettiamo che chi cerca "dove dormire a {città}" trova te per primo.</p>
+      <p class="hero-sub">Mappiamo 24.527 attività turistiche italiane su 33 portali verticali, 507 comuni e 16 regioni. Hotel, stabilimenti, ristoranti, cantieri nautici, rifugi, agriturismi. Gestiamo la loro presenza digitale: listing, Google Business, Meta Ads. Metti la tua attività in evidenza in cima alla pagina che i turisti guardano ("dove dormire a {città}"): 89€ a stagione, pagamento unico — founding pilota Liguria 49€. Bassa stagione inclusa, gratis. Non promettiamo prenotazioni, promettiamo che chi cerca "dove dormire a {città}" trova te per primo.</p>
       <div class="hero-actions">
         <a href="#contatto" class="btn-primary">Verifica il profilo →</a>
         <a href="#servizi" class="btn-ghost">Vedi i servizi</a>
       </div>
+      <div class="founding-band">
+        <span class="founding-flag"><span class="hero-from-dot"></span>Founding pilota Liguria</span>
+        <span class="founding-copy">Il primo anno lo apri tu il prezzo: <s>89€</s> <b class="fnow">49€ a stagione</b>, pagamento unico. Bassa stagione <b>inclusa, gratis</b>. Ti verifichiamo il profilo <b>oggi</b> e sei in cima entro 48h. Non ti piace come appari? <b>Rimborso a 30 giorni</b>, zero domande.</span>
+      </div>
     </div>
     <div class="hero-stats">
-      <div class="hstat"><div class="hstat-n">28</div><div class="hstat-l">Portali attivi</div></div>
+      <div class="hstat"><div class="hstat-n">33</div><div class="hstat-l">Portali attivi</div></div>
       <div class="hstat"><div class="hstat-n">24.527</div><div class="hstat-l">Attività mappate</div></div>
       <div class="hstat"><div class="hstat-n">507</div><div class="hstat-l">Comuni coperti</div></div>
       <div class="hstat"><div class="hstat-n">89€/stag</div><div class="hstat-l">In Evidenza · founding 49€</div></div>
@@ -458,6 +485,18 @@ a{color:inherit;text-decoration:none}
     <span class="pill pill-sub" data-p="fioritura">↳ fiorituracastelluccio.com</span>
   </div>
 </div>
+
+<!-- TRAFFICO REALE (prova sociale + FOMO) -->
+<section class="proof-band">
+  <div class="proof-band-i">
+    <div class="proof-num"><div class="pn">148.000<em>/mese</em></div><div class="pl">ricerche Google che trovano i nostri portali</div></div>
+    <div class="proof-num"><div class="pn">24.527</div><div class="pl">attività già mappate — la tua è probabilmente tra queste</div></div>
+    <div class="proof-claim">
+      <b>Il traffico c'è già.</b> Chi cerca "dove dormire a {città}" atterra sui nostri portali ogni giorno. L'unica domanda è chi trova in cima: te, o il tuo concorrente che ha già rivendicato la scheda.
+      <a href="#contatto" class="pc-cta">Prendi il tuo posto in cima →</a>
+    </div>
+  </div>
+</section>
 
 <!-- ECOSISTEMA / FUNNEL -->
 <section class="eco">
@@ -711,7 +750,7 @@ a{color:inherit;text-decoration:none}
 <section class="portali-section" id="portali">
   <div class="sec-i">
     <div class="sec-tag">Il network</div>
-    <h2 class="sec-h">32 portali.<br><em>Un solo partner.</em></h2>
+    <h2 class="sec-h">33 portali.<br><em>Un solo partner.</em></h2>
     <p class="sec-sub">Tutti i portali del network Gestione Pagine — nautica, montagna, riviere, borghi. La tua attività può essere presente su uno o su tutti.</p>
     <div class="portali-families">
 
@@ -720,6 +759,7 @@ a{color:inherit;text-decoration:none}
         <div class="family-head">
           <span class="family-eyebrow">Nautica · 6 mari italiani</span>
           <span class="family-meta">1 portale · 894 POI</span>
+          <a class="family-cta" href="#contatto">Mettiti in evidenza →</a>
         </div>
         <div class="family-grid">
           <a class="portale-card is-hub" href="https://approdo.org" target="_blank" rel="noopener"><div class="portale-dot"></div><div class="portale-info"><div class="portale-name">approdo.org</div><div class="portale-poi">894 approdi — 6 mari italiani</div></div></a>
@@ -731,9 +771,10 @@ a{color:inherit;text-decoration:none}
         <div class="family-head">
           <span class="family-eyebrow">Outdoor · Montagna</span>
           <span class="family-meta">5 portali · 3.524 POI</span>
+          <a class="family-cta" href="#contatto">Mettiti in evidenza →</a>
         </div>
         <div class="family-grid">
-          <a class="portale-card is-hub" href="https://mountaking.com" target="_blank" rel="noopener"><div class="portale-dot"></div><div class="portale-info"><div class="portale-name">mountaking.com</div><div class="portale-poi">3.044 rifugi e bivacchi mappati</div></div></a>
+          <a class="portale-card is-hub" href="https://mountaking.com" target="_blank" rel="noopener"><div class="portale-dot"></div><div class="portale-info"><div class="portale-name">mountaking.com</div><div class="portale-poi">2.436 rifugi e bivacchi — tutti cliccabili</div></div></a>
           <a class="portale-card is-hub" href="https://rifugi.org" target="_blank" rel="noopener"><div class="portale-dot"></div><div class="portale-info"><div class="portale-name">rifugi.org</div><div class="portale-poi">699 rifugi — portale principale</div></div></a>
           <a class="portale-card is-sub" href="https://rifugialpi.com" target="_blank" rel="noopener"><div class="portale-dot"></div><div class="portale-info"><div class="portale-name">rifugialpi.com</div><div class="portale-poi">350 rifugi alpini</div></div></a>
           <a class="portale-card is-sub" href="https://rifugiappennini.com" target="_blank" rel="noopener"><div class="portale-dot"></div><div class="portale-info"><div class="portale-name">rifugiappennini.com</div><div class="portale-poi">200 rifugi appenninici</div></div></a>
@@ -746,6 +787,7 @@ a{color:inherit;text-decoration:none}
         <div class="family-head">
           <span class="family-eyebrow">Riviere · Costa</span>
           <span class="family-meta">25 portali · mari e laghi · 31.000+ POI mappati · 462 comuni costieri</span>
+          <a class="family-cta" href="#contatto">Mettiti in evidenza →</a>
         </div>
         <div class="family-grid">
           <a class="portale-card is-hub" href="https://leriviere.it" target="_blank" rel="noopener"><div class="portale-dot"></div><div class="portale-info"><div class="portale-name">leriviere.it</div><div class="portale-poi">Hub editoriale 24 riviere — 148K ricerche/mese su Google</div></div></a>
@@ -788,6 +830,7 @@ a{color:inherit;text-decoration:none}
         <div class="family-head">
           <span class="family-eyebrow">Borghi · Food</span>
           <span class="family-meta">2 portali · IGP</span>
+          <a class="family-cta" href="#contatto">Mettiti in evidenza →</a>
         </div>
         <div class="family-grid">
           <a class="portale-card is-hub" href="https://castelluccio.org" target="_blank" rel="noopener"><div class="portale-dot"></div><div class="portale-info"><div class="portale-name">castelluccio.org</div><div class="portale-poi">Piano Grande — Norcia IGP</div></div></a>
